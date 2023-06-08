@@ -1,0 +1,20 @@
+<%-include('../header') %>
+    <div class="container">
+        <form action="" method="POST" role="form">
+            <legend>Form sửa danh mục</legend>
+        
+            <div class="form-group">
+                <label for="">Phân quyền</label>
+                <select name="role" id="input" class="form-control" required="required">
+                    <option value="<%= cat.role%>"><%= cat.role %></option>
+                    <% if(cat.role == 'admin') {%>
+                        <option value="customer">customer</option>
+                    <% } else if(cat.role == 'customer') {%>
+                        <option value="admin">admin</option>
+                    <% }%>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </form>
+    </div>
+<%-include('../footer')%>

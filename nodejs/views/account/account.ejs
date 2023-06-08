@@ -1,0 +1,55 @@
+<%-include ('../header') %>
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <h6 class="m-0 font-weight-bold text-primary">Bảng dữ liệu</h6>
+    
+    <ul class="navbar-nav ml-auto">
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <li class="nav-item dropdown no-arrow">
+            <form method="POST" role="form" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border small"
+                        placeholder="Nhập tên cần tìm..." name="name">
+                    <div>
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+</nav>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Creaed_at</th>
+                    <th>last_login</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((item, key) => { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.email %></td>
+                        <td><%= item.password %></td>
+                        <td><%= item.role %></td>
+                        <td><%= item.creaed_at%></td>
+                        <td><%= item.last_login%></td>
+                        <td>
+                            <a href="/update-account/<%= item.id %>" class="btn btn-warning">Phân quyền</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%-include('../footer') %>

@@ -1,0 +1,128 @@
+.about img {
+    width: 100%;
+    position: relative;
+    opacity: 0.7;
+}
+
+.text {
+    text-align: center;
+}
+
+.text h1 {
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    font-size: 80px;
+    font-weight: 900;
+}
+
+.image img {
+    width: 100%;
+}
+
+.des span {
+    color: #ff7550;
+}
+
+.des a {
+    text-decoration: none;
+    color: black;
+    font-size: 27px;
+}
+
+.content {
+    padding: 50px;
+}
+
+.intro{
+    position: relative;
+}
+
+.intro img {
+    width: 100%;
+    opacity: 0.8;
+}
+
+.txt {
+    text-align: center;
+}
+
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+}
+
+.txt p{
+    color: white;
+}
+
+.txt h2 {
+    color: white;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.txt a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: #ff7550;
+    padding: 15px 35px;
+}
+
+@media screen and (max-width: 768px) {
+    .text h1 {
+        top: 60%;
+    }
+
+    .txt {
+        top: 50%;
+    }
+
+    .txt h2 {
+        font-size: 25px;
+        font-weight: none;
+    }
+
+    .txt p {
+        font-size: small;
+    }
+
+    .txt a {
+        text-decoration: none;
+        color: white;
+        background-color: #ff7550;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .text h1 {
+        font-size: 30px;
+        top: 30%;
+    }
+
+    .txt {
+        top: 30%;
+    }
+
+    .txt h2 {
+        font-size: 18px;
+        font-weight: none;
+    }
+
+    .txt p {
+        font-size: 7px;
+    }
+
+    .txt a {
+        text-decoration: none;
+        color: white;
+        background-color: #ff7550;
+        padding: 5px;
+    }
+}

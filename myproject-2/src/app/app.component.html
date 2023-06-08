@@ -1,0 +1,116 @@
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a routerLink="/">
+                                    <img src="assets/img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" routerLink="/">Trang chủ</a></li>
+                                        <li><a class="active" routerLink="/about">Về chúng tôi</a></li>
+                                        <li><a class="active" routerLink="/blog">Tin tức</a></li>
+                                        <li><a class="active" routerLink="/contact">Liên hệ</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                            <div class="social_wrap d-flex align-items-center justify-content-end">
+                                <div class="social_links d-none d-xl-block">
+                                    <ul class="submenu" *ngIf="!account">
+                                        <li><a routerLink="/login"><i class="fa fa-heart"></i></a></li>
+                                        <li><a class="" routerLink="/login"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a routerLink="/login"><i class="fa fa-user"></i></a>/<a routerLink="/register"><i class="fa fa-registered"></i></a></li>
+                                    </ul>
+                                    <ul class="submenu" *ngIf="account">
+                                        <li><a routerLink="/favourite"><i class="fa fa-heart"></i></a></li>
+                                        <li><a class="" routerLink="/cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a routerLink="#"><i class="fa fa-user"> {{account.name}}</i></a>/<a routerLink="#" (click)="on_logout()"><i class="fa fa-arrow-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="seach_icon">
+                            <a data-toggle="modal" data-target="#exampleModalCenter" routerLink="#">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div> -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<router-outlet></router-outlet>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="logo">
+                    <img class="mb-4" src="assets/img/logo.png" alt="">
+                    
+                    <p>+8434 994 538</p>
+                    <a href="">trananh892k3@gmail.com</a>
+                    <div class="icon">
+                        <ul>
+                            <li><a href=""><i class="fa-brands fa-facebook-f fb"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-instagram ins"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-twitter twi"></i></a></li>
+                            <li><a href=""><i class="fa-brands fa-linkedin lin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h4>Địa điểm hấp dẫn nhất</h4>
+                <div class="loca mt-4">
+                    <ul>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Nha Trang</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Huế</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Sapa</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h4>Địa điểm hấp dẫn nhất</h4>
+                <div class="loca mt-4">
+                    <ul>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Hà Nội</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>TP Hồ Chí Minh</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Đà Nẵng</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h4 class="mb-4">Thư mới</h4>
+                <p>Đăng ký danh sách gửi thư của chúng tôi để nhận các bản cập nhật và ưu đãi mới nhất</p>
+                <form class="d-flex mt-4">
+                    <input class="form-control me-2" type="email" placeholder="Your Email" aria-label="Email">
+                    <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="end text-center">
+    <p>Lank &copy; and Team </p>
+</div>

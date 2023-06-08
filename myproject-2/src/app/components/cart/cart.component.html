@@ -1,0 +1,60 @@
+<div class="bradcam_area bradcam_bg_4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Danh sách chuyến đi đã chọn</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="whole-wrap">
+    <div class="container box_1170">
+        <div class="section-top-border">
+            <h3 class="mb-30">Giỏ hàng</h3>
+            <div class="alert alert-success" *ngIf="carts.length == 0" role="alert">
+                <h4 class="alert-heading">Giỏ hàng rỗng</h4>
+                <p></p>
+                <p class="mb-0"></p>
+            </div>
+            <table class="table" *ngIf="carts.length">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Giá </th>
+                        <th>Số lượng người </th>
+                        <th>Tổng tiền</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of carts; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td><img [src]="'http://localhost:3000/img/' +  c.image" width="50px" alt=""></td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.price}}</td>
+                        <td>
+                            <button (click)="giamSl(i, c.quantity)">-</button>
+                            <input (change)="updateQuantity(i, $event)" type="number" [value]="c.quantity"
+                                style="width: 50px; text-align: center">
+                            <button (click)="tangSl(i, c.quantity)">+</button>
+                        </td>
+                        <td>{{subToTal(c)}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="removeCart(i)">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a routerLink="/" class="btn btn-success mx-1">Tiếp tục mua hàng</a>
+                <button href="" class="btn btn-danger mx-1" (click)="clearCart()">Xóa hết giỏ hàng</button>
+                <a href="" class="btn btn-primary mx-1">Thanh toán</a>
+            </div>
+        </div>
+    </div>
+</div>

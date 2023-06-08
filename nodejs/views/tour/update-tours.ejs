@@ -1,0 +1,117 @@
+<%-include('../header') %>
+    <div class="container">
+        <form action="" method="POST" role="form" id="tours_form" enctype="multipart/form-data">
+            <legend>Form sửa thông tin product</legend>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="">Tên product</label>
+                        <input type="text" class="form-control" name="name" value="<%= cat.name %>">
+                        <small id="name_error" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mô tả ngày 1</label>
+                        <div class="deltai_update"></div>
+                        <textarea name="description" class="summernote"><%= cat.description %> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mô tả ngày 2</label>
+                        <div class="deltai_update"></div>
+                        <textarea name="des2" class="summernote"><%= cat.des2 %> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mô tả ngày 3</label>
+                        <div class="deltai_update"></div>
+                        <textarea name="des3" class="summernote"><%= cat.des3 %> </textarea>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Giá gốc</label>
+                        <input type="text" class="form-control" name="price" value="<%= cat.price %>">
+                        <small id="price_error" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Giá khuyến mại</label>
+                        <input type="text" class="form-control" name="sale_price" value="<%= cat.sale_price %>">
+                        <small id="sl_error" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Hình ảnh</label>
+                        <input type="file" onchange="onChangeFile(this)" class="form-control my-2" name="image">
+                        <img src="" alt="<%= cat.image %>" id="show_img_update" style="width: 100%;">
+                        <small id="img_error" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mã danh mục</label>
+                        <select name="category_id" id="input" class="form-control" required="required">
+                            <option value="<%= cat.category_id%>">
+                                <%= cat.category_id %>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Trạng thái product</label>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="status" value="1" <%=cat.status==1  ? 'checked' : '' %>>
+                                Hiển thị
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="status" value="0" <%=cat.status==0 ? 'checked' : '' %>>
+                                Tạm ẩn
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <%-include('../footer')%>
+        <script>
+            tours_form.onsubmit = function () {
+                if (this.name.value == '') {
+                    this.name.style.border = '1px solid red';
+                    name_error.innerHTML = 'Không được để trống';
+                    this.name.focus();
+                } else {
+                    name_error.innerHTML = '';
+                    this.name.style.border = '1px solid lightblue';
+                };
+
+                if (this.price.value == '') {
+                    this.price.style.border = '1px solid red';
+                    price_error.innerHTML = 'Không được để trống';
+                    this.price.focus();
+                } else {
+                    price_error.innerHTML = '';
+                    this.price.style.border = '1px solid lightblue';
+                };
+                if (this.image.value == '') {
+                    this.image.style.border = '1px solid red';
+                    img_error.innerHTML = 'Không được để trống';
+                    this.image.focus();
+                    return false;
+                } else {
+                    img_error.innerHTML = '';
+                    this.image.style.border = '1px solid lightblue';
+                };
+
+            }
+
+            $('.summernote').summernote();
+
+            function onChangeFile(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#show_img_update').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>

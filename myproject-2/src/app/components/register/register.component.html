@@ -1,0 +1,109 @@
+<div class="bradcam_area bradcam_bg_4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Đăng ký tài khoản</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<!-- ================ contact section start ================= -->
+<section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Tạo tài khoản</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" method="post" [formGroup]="formRegister" (submit)="on_register()">
+                        <div class="row">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="checkErrors">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>{{checkErrors}}</strong> 
+                              </div>
+                              
+                              <script>
+                                $(".alert").alert();
+                              </script>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="single_input">
+                                        <input type="text" class="form-control" formControlName="name"
+                                            placeholder="Tên người dùng">
+                                        <div *ngIf="fo['name'].touched && fo['name'].errors">
+                                            <small class="help-block" *ngIf="fo['name'].errors['required']">Name không
+                                                được để trống </small>
+                                            <small class="help-block" *ngIf="fo['name'].errors['minlength']">Name tối thiểu 6 ký tự </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="single_input">
+                                        <input type="text" class="form-control" formControlName="email"
+                                            placeholder="Địa chỉ email">
+                                        <div *ngIf="fo['email'].touched && fo['email'].errors">
+                                            <small class="help-block" *ngIf="fo['email'].errors['required']">Email không
+                                                được để trống </small>
+                                            <small class="help-block" *ngIf="fo['email'].errors['email']">Email không đúng
+                                                định dạng </small>
+                                            <small class="help-block" *ngIf="fo['email'].errors['minlength']">Email tối thiểu 12 ký tự </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="single_input">
+                                        <input type="password" class="form-control" formControlName="password"
+                                            placeholder="Mật khẩu">
+                                            <div *ngIf="fo['password'].touched && fo['password'].errors">
+                                                <small class="help-block" *ngIf="fo['password'].errors['required']">Mật khẩu không
+                                                    được để trống </small>
+                                                    <small class="help-block" *ngIf="fo['password'].errors['pattern']">Mật khẩu ít nhất 4 ký tự, bao gồm chữ thường, chữ hoa, số</small>
+                                               
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="button button-contactForm boxed-btn">Đăng Ký</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Tòa nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội</h3>
+                            <!-- <p>Rosemead, CA 91770</p> -->
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+8424 3755 4010</h3>
+                            <p>Thứ 2 đến Thứ 6 9am - 6pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>Demo@gmail.com</h3>
+                            <p>Gửi cho chúng tôi ý kiến của bạn bất cứ lúc nào!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    

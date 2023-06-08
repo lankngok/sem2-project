@@ -1,0 +1,71 @@
+<%-include ('../header') %>
+                <div class="container-fluid">
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+
+                            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                                <h6 class="m-0 font-weight-bold text-primary">Bảng dữ liệu</h6>
+                                
+                                <ul class="navbar-nav ml-auto">
+                    
+                                    <li class="nav-item dropdown no-arrow my-1">
+                                        <a href="/create-category" class="btn btn-sm font-weight-bold btn-primary text-center">Thêm mới danh mục</a>
+                                    </li>
+                                    <div class="topbar-divider d-none d-sm-block"></div>
+                    
+                                    <li class="nav-item dropdown no-arrow">
+                                            <form method="POST" role="form" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control bg-light border small"
+                                                        placeholder="Nhập tên cần tìm..." name="name">
+                                                    <div>
+                                                        <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                                                        <a class="btn btn-primary" href="/category"><i class="fas fa-arrows-alt fa-sm"></i></a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    </li>
+                    
+                                </ul>
+                    
+                            </nav>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <!-- <th>Des</th> -->
+                                            <th>Image</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% data.forEach((item, key) => { %>
+                                            <tr>
+                                                <td><%= item.id %></td>
+                                                <td><%= item.name %></td>
+                                                <!-- <td><%= item.description %></td> -->
+                                                <td>
+                                                    <img src="/img/<%= item.image %>" width="150px" alt="">
+                                                </td>
+                                                <td><%= item.status == 0 ? 'Tạm ẩn': 'Hiển thị'%></td>
+                                                <td>
+                                                    <a onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" href="/delete-category/<%= item.id %>" class="btn btn-danger">Xóa</a>
+                                                    <a href="/update-category/<%= item.id %>" class="btn btn-warning">Sửa</a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+<%-include('../footer') %>

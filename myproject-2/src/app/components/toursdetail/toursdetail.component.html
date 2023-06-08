@@ -1,0 +1,111 @@
+<div class="bradcam_area bradcam_bg_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Chi tiết chuyến đi</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="whole-wrap">
+    <div class="container box_1170">
+        <div class="section-top-border">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="http://localhost:3000/img/{{product.image}}" alt="" width="100%">
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2> {{product.name}}</h2>
+                            <h3><s>Giá gốc : {{product.price}}$</s></h3>
+                            <h2 style="color: darkred;"><i>Giá khuyến mại :  {{product.sale_price}}$</i></h2>
+                        </div>
+                        <div class="col-md-12">
+                            <a class="mx-2"><i class="fa fa-heart text-danger" ></i></a>
+                            <a class="mx-2"><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                        <!-- <div class="col-md-12 my-2">
+                           <h3>Ngày sx: {{product.created_at}}</h3>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-12  my-5">
+                    <div class="section_title text-center mb_70">
+                        <h3>Chương trình chuyến đi. </h3>
+                    </div>
+                    <div class="product-desc"  >
+                        
+                        <p [innerHTML]="product.description"></p>
+                    </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src="https://th.bing.com/th/id/OIP.O9YHDtxWzJHZ3mvkwFVrmQAAAA?pid=ImgDet&rs=1" alt=""  width="100%">
+                                <div class="mt-4">
+                                    <img src="https://th.bing.com/th/id/R.6c73956282bc97d02f3c5d43df5e5be8?rik=G7zTDTglAbIJrg&riu=http%3a%2f%2fvinpearllandnhatrang.com%2fwp-content%2fuploads%2f2020%2f07%2fVinWonders-Nha-Trang1.jpg&ehk=J7f1auUkDrBykINu8CPOeUdiqp9j%2fGdneqSAhTiGVRE%3d&risl=&pid=ImgRaw&r=0" alt=""width="100%">
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="https://i.pinimg.com/originals/39/cd/68/39cd6800367d499ccf9dd3683dbccb12.png" alt=""  width="100%">
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="https://i0.wp.com/www.voyagevietnam.com/wp-content/uploads/2019/12/am-thuc-viet-nam-3.jpg?w=1140&ssl=1" alt=""  width="100%">
+                                <div class="mt-4">
+                                    <img src="https://www.bennettcards.co.uk/shop/images/CP29.jpg" alt=""width="100%">
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-desc mt-3" >
+                       
+                        <p [innerHTML]="product.des2"></p>
+                    </div>
+                    <div class="product-desc mt-3" >
+                       
+                        <p [innerHTML]="product.des3"></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="recent_trip_area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center mb_70">
+                            <h3>Các sản phẩm liên quan</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6" *ngFor="let tn of related_products | paginate: { itemsPerPage: 3, currentPage: p }">
+                        <div class="single_trip">
+                            <div class="thumb">
+                                <img [src]="'http://localhost:3000/img/' +  tn.image" alt="">
+                            </div>
+                            <div class="info">
+                                <div class="date">
+                                    <a [routerLink]="['/tours/', tn.id]">
+                                        <span>{{tn.name}}</span>
+                                    </a>
+                                </div>
+                                <a  [routerLink]="['/tours/', tn.id]">
+                                    <!-- <h3>Giá : {{tn.price | currency: "":"":"6.0"}}</h3> -->
+                                    <h3>Giá : {{ tn.price }} $</h3>
+                                </a>
+                                <a><i class="fa fa-heart text-danger" ></i></a>
+                                <a class="mx-2"><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>

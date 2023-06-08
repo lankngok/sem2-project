@@ -1,0 +1,71 @@
+<div class="bradcam_area bradcam_bg_4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Đăng Nhập</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="destination_details_info">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-9">
+                <div class="contact_join">
+                    <h3>Nhập tài khoản</h3>
+                    <form action="#" method="post" [formGroup]="formLogin" (submit)="on_login()">
+                        <div class="row">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="checkErrors">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <strong>{{checkErrors}}</strong> 
+                            </div>
+                            
+                            <script>
+                              $(".alert").alert();
+                            </script>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="single_input">
+                                        <input type="text" class="form-control" formControlName="email"
+                                            placeholder="Địa chỉ email">
+                                        <div *ngIf="fo['email'].touched && fo['email'].errors">
+                                            <small class="help-block" *ngIf="fo['email'].errors['required']">Email không
+                                                được để trống </small>
+                                            <small class="help-block" *ngIf="fo['email'].errors['email']">Email không đúng
+                                                định dạng </small>
+                                            <!-- <small class="help-block" *ngIf="fo['email'].errors['minlength']">Email tối thiểu 12 ký tự </small> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-md-12">
+                                <div class="form-group">
+                                    <div class="single_input">
+                                        <input type="password" class="form-control" formControlName="password"
+                                            placeholder="password">
+                                            <div *ngIf="fo['password'].touched && fo['password'].errors">
+                                                <small class="help-block" *ngIf="fo['password'].errors['required']">Mật khẩu không
+                                                    được để trống </small>
+                                               
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+
+                                <button type="submit" class="btn btn-primary " [disabled]="fo['email'].errors || fo['password'].errors">Đăng
+                                    Nhập</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

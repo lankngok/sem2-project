@@ -1,0 +1,70 @@
+<main>
+    <div class="contact">
+        <img src="assets/img/contact-banner.jpg" alt="">
+        <div class="text">
+            <h1>Liên hệ chúng tôi</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-6">
+                <form action="" method="post" [formGroup]="formData">
+                    <div class="mb-3">
+                        <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Họ và tên*" formControlName="name">
+                        <div *ngIf="form.name.invalid && (form.name.dirty || form.name.touched)">
+                            <div *ngIf="form.name.errors?.['required']">
+                                <span class="text-danger">Không được để trống</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Email*" formControlName="email">
+                        <div *ngIf="form.email.invalid && (form.email.dirty || form.email.touched)">
+                            <div *ngIf="form.email.errors?.['required']">
+                                <span class="text-danger">Không được để trống</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                            placeholder="Tin nhắn*" formControlName="mesage"></textarea>
+                        <div *ngIf="form.mesage.invalid && (form.mesage.dirty || form.mesage.touched)">
+                            <div *ngIf="form.mesage.errors?.['required']">
+                                 <span class="text-danger">Không được để trống</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="but form-control" type="submit">Gửi</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="cont">
+                    <ul>
+                        <li><a href=""><i class="fa-solid fa-location-dot me-3"></i><span>Tòa nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-envelope me-3"></i><span>Demo@gmail.com</span></a>
+                        </li>
+                        <li><a href=""><i class="fa-solid fa-phone me-3"></i><span>+8424 3755 4010</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <h4>Theo dõi chúng tôi trên mạng xã hội</h4>
+                <div class="icon">
+                    <ul>
+                        <li><a href=""><i class="fa-brands fa-facebook-f fb"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram ins"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-twitter twi"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin lin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13857.153434731157!2d105.78151739521756!3d21.04584541559053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab3b4220c2bd%3A0x1c9e359e2a4f618c!2sB%C3%A1ch%20Khoa%20Aptech!5e0!3m2!1svi!2s!4v1682491095153!5m2!1svi!2s"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</main>

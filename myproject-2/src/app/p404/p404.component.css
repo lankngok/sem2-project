@@ -1,0 +1,52 @@
+.bg img {
+    width: 100%;
+    position: relative;
+    opacity: 0.7;
+}
+
+.content {
+    text-align: center;
+}
+
+.content span {
+    color: rgba(255, 255, 255, 0.32);
+    font-size: 300px;
+    font-weight: 900;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+}
+
+.content h1 {
+    color: white;
+    position: absolute;
+    top: 75%;
+    left: 0;
+    right: 0;
+    font-weight: 900;
+    font-size: 65px;
+}
+
+@media screen and (max-width: 768px){
+    .content span{
+        top: 40%;
+    }
+
+    .content h1{
+        top: 60%;
+    }
+}
+
+@media screen and (max-width: 325px){
+    .content span{
+        font-size: 150px;
+        top: 20%;
+    }
+
+    .content h1{
+        font-size: 35px;
+        top: 30%;
+    }
+}

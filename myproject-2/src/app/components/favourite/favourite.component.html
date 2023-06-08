@@ -1,0 +1,48 @@
+<div class="bradcam_area bradcam_bg_4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Danh sách yêu thích</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Align Area -->
+<div class="whole-wrap">
+    <div class="container box_1170">
+        <div class="recent_trip_area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center mb_70">
+                            <h3>Các sản yêu thích của bạn</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6" *ngFor="let fr of favourite">
+                        <div class="single_trip">
+                            <div class="thumb">
+                                <img [src]="'http://localhost:3000/img/' +  fr.image" alt="">
+                            </div>
+                            <div class="info">
+                                <div class="date">
+                                    <a  [routerLink]="['/tours/', fr.id]">
+                                    <span>{{fr.name}}</span>
+                                </a>
+                                </div>
+                                <a  [routerLink]="['/tours/', fr.id]">
+                                    <h3>Giá : {{fr.price }}$</h3>
+                                </a>
+
+                                <button (click)="removeFavourite(fr.id)" class="btn btn-danger my-2">Bỏ thích</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

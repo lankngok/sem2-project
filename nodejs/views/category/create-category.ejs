@@ -1,0 +1,83 @@
+<%-include('../header') %>
+    <div class="container">
+        
+        <form action="/create-category" method="POST" role="form" id="category_form" enctype="multipart/form-data">
+            <legend>Form thêm mới danh mục</legend>
+        
+            <div class="form-group">
+                <label for="">Tên danh mục</label>
+                <input type="text" class="form-control" name="name" placeholder="Input name">
+                <small id="error" class="text-danger"></small>
+            </div>
+            <!-- <div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control" name="description" placeholder="Input name">
+                <small id="error" class="text-danger"></small>
+            </div> -->
+            <div class="form-group">
+                <label for="">Mô tả </label>
+                <input name="description" id="error" class="form-control"  required="required"></input>
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" onchange="onChangeFile(this)" class="form-control my-2 " name="image">
+                <img src="" alt="" id="show_img" style="width: 100%;">
+                <small id="img_error" class="text-danger"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="">Trạng thái danh mục</label>
+                
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="status" value="1" checked>
+                        Hiển thị
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="status" value="0">
+                        Tạm ẩn
+                    </label>
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Thêm mới</button>
+        </form>
+    </div>
+<%-include('../footer')%>
+<script>
+    category_form.onsubmit = function(){
+            if(this.name.value == ''){
+                this.name.style.border = '1px solid red';
+                error.innerHTML = 'Không được để trống tên';
+                this.name.focus();
+                return false;
+            } else {
+                error.innerHTML = '';
+                this.name.style.border = '1px solid lightblue';
+            };
+            
+            if(this.image.value == ''){
+                this.image.style.border = '1px solid red';
+                img_error.innerHTML = 'Không được để trống';
+                this.image.focus();
+            } else {
+                img_error.innerHTML = '';
+                this.image.style.border = '1px solid lightblue';
+            };
+        }
+        $('#deltai').summernote({
+            height: 300
+        });
+
+        function onChangeFile(input) {
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function (e){
+                    $('#show_img').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>

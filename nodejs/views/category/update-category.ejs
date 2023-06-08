@@ -1,0 +1,78 @@
+<%-include('../header') %>
+    <div class="container">
+        <form action="" method="POST" role="form" id="category_form" enctype="multipart/form-data">
+            <legend>Form sửa danh mục</legend>
+        
+            <div class="form-group">
+                <label for="">Tên danh mục</label>
+                <input type="text" class="form-control" name="name" value="<%= cat.name %>">
+                <small id="error" class="text-danger"></small>
+            </div>
+            <div class="form-group">
+                <label for="">Mô tả </label>
+                <div class="deltai_update"></div>
+                <textarea name="description" class="summernote"><%= cat.description %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Hình ảnh</label>
+                <input type="file" onchange="onChangeFile(this)" class="form-control my-2" name="image">
+                <img src="" alt="<%= cat.image %>" id="show_img_update" style="width: 100%;">
+                <small id="img_error" class="text-danger"></small>
+            </div>
+            <div class="form-group">
+                <label for="">Trạng thái danh mục</label>
+                
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="status" value="1" <%= cat.status == 1 ? 'checked' : '' %>>
+                        Hiển thị
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="status" value="0" <%= cat.status == 0 ? 'checked' : '' %>>
+                        Tạm ẩn
+                    </label>
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </form>
+    </div>
+<%-include('../footer')%>
+<script>
+    category_form.onsubmit = function(){
+            if(this.name.value == ''){
+                this.name.style.border = '1px solid red';
+                error.innerHTML = 'Không được để trống tên';
+                this.name.focus();
+                return false;
+            } else {
+                error.innerHTML = '';
+                this.name.style.border = '1px solid lightblue';
+            }
+            if (this.image.value == '') {
+                    this.image.style.border = '1px solid red';
+                    img_error.innerHTML = 'Không được để trống';
+                    this.image.focus();
+                    // return false;
+                } else {
+                    img_error.innerHTML = '';
+                    this.image.style.border = '1px solid lightblue';
+                };
+
+            }
+
+            $('.summernote').summernote();
+
+            function onChangeFile(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#show_img_update').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        
+</script>
